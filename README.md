@@ -50,6 +50,21 @@ robotic manipulators.
 
 ## Build instructions
 ### Plain cmake
+We need to update gcc/g++ on Ubuntu 16 to avoid below errors:
+```
+Universal_Robots_Client_Library/include/ur_client_library/comm/tcp_server.h:178:8: error: ‘vector’ in namespace ‘std’ does not name a template type
+
+Universal_Robots_Client_Library/include/ur_client_library/rtde/data_package.h:33:19: fatal error: variant: No such file or directory
+```
+- Update gcc:
+```
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt-get install gcc-8 g++-8
+gcc-8 --version
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 20 --slave /usr/bin/g++ g++ /usr/bin/g++-8
+```
 To build this library standalone so that you can build you own applications using this library,
 follow the usual cmake procedure:
 ```bash
