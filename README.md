@@ -29,8 +29,10 @@
 
 A C++ library for accessing Universal Robots interfaces. With this library C++-based drivers can be
 implemented in order to create external applications leveraging the versatility of Universal Robots
-robotic manipulators.
-
+robotic manipulators. This library can resolve the below error when using `ros-kinetic-ur-client-library` package.
+```
+Universal_Robots_ROS_Driver/ur_robot_driver/include/ur_robot_driver/urcl_log_handler.h:43:31: error: ‘urcl’ has not been declared
+```
 ## Requirements
  * The library requires an implementation of **POSIX threads** such as the `pthread` library
  * Socket communication is currently based on Linux sockets. Thus, this library will require Linux
